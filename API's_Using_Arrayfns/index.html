@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+</head>
+
+<body>
+    <script>
+       try{
+             var request = new XMLHttpRequest();
+           request.open("GET", "https://restcountries.eu/rest/v2/all", true);
+           request.send();
+           request.onload = function () {
+               var data = JSON.parse(this.response);
+            //    console.log(data);
+          // a.Get all the countries from Asia continent using Filter function
+              
+              try{ 
+                   var asia = data.filter(x => x.region == 'Asia');
+                console.log(asia)
+              } catch (err) {
+                   console.log('AError: ' + err.message)
+               }
+//  ................................................................              
+            // b.Get all the countries with population of less than 2 lacs using Filter function
+            try{
+                 var pop=data.filter(x=>x.population<200000);
+                 console.log(pop)
+            } catch (err) {
+                console.log('BError: ' + err.message)
+            }
+  //  ................................................................          
+               // c.Print the following details name, capital, flag using forEach function
+               try {
+                   var details = [];
+                   data.forEach(x => {
+                        details.push({
+                            Name: x.name,
+                            Capital:x.capital,
+                            Flag:x.flag
+                        })           
+                   });
+                   console.log(details)
+               } catch (err) {
+                   console.log('CError ' + err.message)
+               }        
+    //  ................................................................           
+        // d.Print the total population of countries using reduce function
+        try{
+             var pops=data.map(x=>x.population)
+             var total= pops.reduce((x,sum)=>{
+                 return sum=x+ +sum;
+             })
+             console.log(total)
+        } catch (err) {
+                   console.log('CError ' + err.message)
+               } 
+        
+      //  ................................................................       
+        
+ // e.Print the total population of countries in Asia continent using reduce and filter function
+        
+           try {
+                   var asia = data.filter(x => x.region=='Asia').map(y=>y.population);
+                   
+                   var totalAsia=asia.reduce((x,sum)=>{
+                       return sum= x+ +sum ;
+                   })
+                 console.log(totalAsia);
+                
+               } catch (err) {
+                   console.log('AError: ' + err.message)
+               }
+        
+      //  ................................................................  
+    //   f.Print the countries which use US Dollars as currency.    
+       try{
+        var currency=data.filter(x=>x.currencies[0].code=='USD');
+        console.log(currency)
+       } catch (err) {
+           console.log('AError: ' + err.message)
+       }
+        
+        
+        
+        
+            
+        }
+       }catch (err){
+           console.log('Error '+ err.message)
+       }
+
+
+
+    </script>
+</body>
+
+</html>
