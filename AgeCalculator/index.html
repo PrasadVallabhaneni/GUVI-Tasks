@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        .num{
+          margin-top: 30px;
+          margin-bottom: 20px;
+        }
+        .date{
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .submit{
+            margin-top: 20px;
+        }
+        .results{
+            margin: 10px;
+            padding: 10px;
+            color: blue;
+            display: none;
+        }
+       
+
+    </style>
+</head>
+<body>
+    
+ 
+    <script>
+    var date=document.getElementById('date');
+   
+     var div=document.createElement('div');
+      div.setAttribute('class','container');
+      document.body.append(div);
+      
+         var text = document.createElement('input');
+            text.setAttribute('class', 'form-control num');
+            text.setAttribute('type', 'text');
+           
+            div.append(text);
+
+         
+     var button = document.createElement('button');
+                button.setAttribute('class', 'btn btn-success');
+                button.setAttribute('onclick', 'digit()');
+                button.setAttribute('type', 'button');
+                button.innerHTML = 'Click for Unique 8 digit no'
+                div.append(button);
+
+     var row1 = document.createElement('div');
+        row1.setAttribute('class', 'row');
+        div.append(row1);
+        var col1 = document.createElement('div');
+        col1.setAttribute('class', 'col-lg-6 col-sm-12 col-xs-12');
+        row1.append(col1);
+        // var col2 = document.createElement('div');
+        // col2.setAttribute('class', 'col-lg-6 col-sm-12 col-xs-12');
+        // row1.append(col2);
+      var row2 = document.createElement('div');
+        row2.setAttribute('class', 'row results');
+        div.append(row2);
+        var col3 = document.createElement('div');
+        col3.setAttribute('class', 'col-lg-6 col-sm-12 col-xs-12');
+        row2.append(col3);
+        var col4 = document.createElement('div');
+        col4.setAttribute('class', 'col-lg-6 col-sm-12 col-xs-12');
+        row2.append(col4);   
+        
+        
+        col1.innerHTML='<label for="date" class="date">Select Date</label> <input type="date" class="form-control date" id="date">';
+        // col2.innerHTML = '<label for="time" class="date">Select Time</label>  <input type="time" class="form-control date" id="time" step="1000">';
+
+        var button2 = document.createElement('button');
+            button2.setAttribute('class', 'btn btn-success submit');
+            button2.setAttribute('onclick', 'age()');
+            button2.setAttribute('type', 'button');
+            button2.innerHTML = 'Submit'
+            div.append(button2);
+
+        function age(){
+            var date=new Date();
+            var day=date.getDate()
+            var month=date.getMonth()
+           var year=date.getFullYear()
+            var hour=date.getHours()
+          var min=  date.getMinutes()
+          var sec= date.getSeconds()
+
+          var inputDate= document.getElementById('date').value.split('-');
+        //   var inputTime= document.getElementById('time').value;
+          var inputYear=inputDate[0]
+          var inputMonth = inputDate[1]
+          var inputDay = inputDate[2]
+
+        //   var inputHour=inputTime[0]
+        //    var inputMin = inputTime[1]
+        //     var inputSec = inputTime[2];
+
+          var inputtime1=new Date('"'+inputMonth+'/'+inputDay+'/'+inputYear+'"')  
+          
+            var Difference_In_Time = date.getTime() - inputtime1.getTime();
+           
+            // // To calculate the no. of days between two dates 
+            var Difference_In_Days = (Difference_In_Time / (1000 * 3600 * 24)); 
+          
+          col3.innerHTML=`Year Difference: ${year-inputYear} </br> Day Count: ${Difference_In_Days.toFixed()}</br> Seconds Difference: ${Difference_In_Time / 1000}`
+          col4.innerHTML = `Months Count: ${((12-inputMonth)+12*((year - inputYear)-1)+month)+1}</br> Minutes Difference: ${(Difference_In_Time/1000)/60}</br> MilliSeconds Difference: ${Difference_In_Days * 24 * 60*60*1000}`;
+
+          row2.style.display='flex';
+          
+        }
+       
+       
+            
+        function digit(){
+            var x=Math.floor(Math.random()*10);
+            var num=x.toString();
+            var incr = 1;
+             for(var i=1;i<8;i++){
+                   var y=x+i;
+                    
+               if(y>9){   
+                       y=x-incr;
+                       num=num+y.toString();
+                       incr++;
+                      
+                   }else{
+                        num = num + y.toString()
+                   }
+             }
+              text.setAttribute('value', num);
+            
+        }
+        
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+</html>
