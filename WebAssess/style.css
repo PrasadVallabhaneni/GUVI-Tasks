@@ -1,0 +1,241 @@
+
+
+#header{
+    display:flex;
+    list-style: none;
+    margin: 20px;
+    justify-content: start;
+    
+    /* align-items: center; */
+}
+#header a{
+    text-decoration: none;
+}
+#header li{
+    padding: 20px;
+}
+.container{
+    background-color: #E9ECEF;
+    width: fit-content;
+    height: fit-content;
+    display:inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+   
+   
+   
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+ 
+
+.form label{
+    float: left;
+    margin-right: 20vw;
+    
+    width: 150px;
+   
+}
+.form input{
+     width: 263px;
+    height: 29px;
+    border: none;
+
+}
+.form-group{
+   margin: 25px;
+    padding: 10px;
+    
+   
+}
+.fa{
+    
+   padding-left: 10px;
+   padding-top: 5px;
+    background-color:#E9ECEF;
+    height: 23px;
+    width:20px;
+    border: 1px solid rgb(214, 211, 211);
+   
+}
+.icon{
+    display: inline;
+    float: right;
+    width: 300px;
+    height: 30px;
+    border: 1px solid rgb(214, 211, 211);
+    border-radius: 4px;
+}
+.form-group button{
+    margin-left: 50%;
+    margin-top: 20px;
+    padding: 2px;
+}
+
+
+.container2{
+    display: inline-flex;
+    flex-wrap: nowrap;
+     width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    /* justify-content: center;
+    align-items: center;
+    align-content: center; */
+    
+ margin-left: 30%;
+ margin-right:30%;
+ font-family: 'Quicksand', sans-serif;
+
+}
+.navbar li{
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: nowrap;
+     padding: 10px;
+     border-radius: 4px;
+    
+}
+#li{
+   float: right;
+   margin-top: 10px;
+/* margin-left: 10vw; */
+color: #9bbeec;
+}
+.navbar{
+    /* display: flex; */
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+.navbar h4{
+    margin-right: 20px;
+    float: left;
+}
+.menu:hover{
+  background: #adc7e949;
+}
+.menu.active{
+    background: #2B7DE9;
+}
+
+
+.jumbotron{
+   /* width: 500px; */
+   background-color: #E8ECEE;
+   height: fit-content;
+   padding: 30px;
+  text-align: center;
+font-family: 'Quicksand', sans-serif;
+}
+#signup{
+   
+padding: 8px;
+width: 110px;
+    color: white;
+    background: #4CA649;
+    border: none;
+    border-radius: 3px;
+}
+#launch{
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
+     color: white;
+    background: #2B7DE9;
+    border: none;
+    border-radius: 3px;
+
+}
+.sub{
+    display: inline-flex;
+}
+.sub h2{
+    font-size: 20px;
+}
+.sub p{
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 920px) {
+   .container2{
+       margin-left:20% ;
+       margin-right:20% ;
+   }
+}
+@media only screen and (max-width: 829px) {
+   .container2{
+       margin-left:15% ;
+       margin-right:15% ;
+   }
+}
+@media only screen and (max-width: 634px) {
+   .container2{
+       margin-left:10% ;
+       margin-right:10% ;
+   }
+   .navbar h4{
+     margin-right: 25%;
+       margin-left: 25%;
+       
+    
+   }
+   .container{
+       margin-left: 8%;
+       margin-right: 8%;
+   }
+   #li{
+       margin-right: 25%;
+       margin-left: 25%;
+       margin-bottom: 20px;
+   }
+  
+}
+
+body{
+    background-color: #F5F5F5;
+    height: 100vh;
+    display: grid;
+    place-items: center center;
+    font-family: 'Poppins',sans-serif;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    padding: 20px;
+    grid-gap: 40px;
+}
+.card{
+    background-color: #f2f2f7;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.18);
+    overflow: hidden;
+}
+img{
+    width: 500px;
+    height: 200px;
+    display: block;
+    border-radius: 20px 20px 0 0;
+}
+
+.details{
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+.details button{
+    float: right;
+    padding: 6px;
+    margin-right: 10px;
+    background-color: #4DA846;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+
+
+
