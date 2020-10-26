@@ -8,4 +8,7 @@
 4. Newspaper: https://newspaperdesign.netlify.app/index.html
 
 5. Age Calculator: https://age-calcy.netlify.app/
+
 6. WebAssessment: https://html-css-assignment.netlify.app/index.html
+
+7. Pagination: https://pagination-data.netlify.app
