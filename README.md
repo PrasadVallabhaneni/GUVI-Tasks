@@ -12,3 +12,5 @@
 6. WebAssessment: https://html-css-assignment.netlify.app/index.html
 
 7. Pagination: https://pagination-data.netlify.app
+
+8. Promise_fn(btstrp cards): https://promise-fn.netlify.app
