@@ -1,0 +1,54 @@
+.bg {
+  background-image: url("restaurant2.jpg");
+
+  display: flex;
+  height: 100%;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  background-attachment: fixed;
+
+  justify-content: center;
+}
+#searchBar {
+  position: fixed;
+  width: 360px;
+
+  margin: 20% auto;
+  z-index: 1;
+  justify-content: center;
+}
+#searchBar input {
+  border-radius: 70px;
+  background-color: #c9c0ad;
+  border: 1px solid #2928273d;
+  height: 45px;
+  color: #130f0d;
+}
+#popovers {
+  display: inline-flex;
+  margin-left: -25px;
+}
+#popovers button {
+  margin: 10px;
+  width: 130px;
+}
+#results {
+  display: inline-block;
+
+  margin: 30 auto;
+}
+#cards {
+  display: inline-flex;
+
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+}
+.card {
+  height: 500px;
+}
+#cards:hover {
+  opacity: 0.9;
+}
