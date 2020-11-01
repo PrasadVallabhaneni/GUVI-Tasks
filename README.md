@@ -14,3 +14,5 @@
 7. Pagination: https://pagination-data.netlify.app
 
 8. Promise_fn(btstrp cards): https://promise-fn.netlify.app
+
+9.Get_Recipes(Searc dish name to get recipes): https://get-recipees.netlify.app/
