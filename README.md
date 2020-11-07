@@ -16,3 +16,5 @@
 8. Promise_fn(btstrp cards): https://promise-fn.netlify.app
 
 9.Get_Recipes(Searc dish name to get recipes): https://get-recipees.netlify.app/
+
+10. Customer Invoice reciepts(using classes): https://customer-invoive-account-app.netlify.app
