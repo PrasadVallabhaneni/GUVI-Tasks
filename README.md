@@ -18,3 +18,9 @@
 9.Get_Recipes(Searc dish name to get recipes): https://get-recipees.netlify.app/
 
 10. Customer Invoice reciepts(using classes): https://customer-invoive-account-app.netlify.app
+
+11. TV Application: https://tvapplication.netlify.app
+
+12. Quiz Game: https://quizz-appp.netlify.app/index.html
+
+13: Weather api: https://weather-apis.netlify.app
