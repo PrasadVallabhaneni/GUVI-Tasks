@@ -1,0 +1,366 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding-top: 50px;
+        background-color: #f6f6f9;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 offset-3">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="emailHelp"
+                placeholder="Enter Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="role">Designation</label>
+              <input
+                type="text"
+                class="form-control"
+                id="role"
+                placeholder="Ex: Full Stack Developer"
+              />
+            </div>
+            <div class="form-check">
+              <label for="bio">Bio</label> <br />
+              <textarea name="" id="bio" cols="30" rows="2"></textarea>
+            </div>
+            <div class="form-group" id="wrksform">
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="float: right"
+                onclick="worksForm()"
+              >
+                Add
+              </button>
+            </div>
+
+            <div class="form-group" id="skills">
+              <label for="skill1">Skills</label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="float: right"
+                onclick="skillsForm()"
+              >
+                Add Skill
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Contact Details</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                placeholder="Phone"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="linkedin"
+                placeholder="Linkedin Profile Link"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="github"
+                placeholder="Github Profile Link"
+              />
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="add()">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var id1 = 1;
+      var url = "https://portfolio-template-design.herokuapp.com";
+      function worksForm() {
+        var form = document.getElementById("wrksform");
+
+        form.insertAdjacentHTML(
+          "beforeend",
+          ` <div ><label for="role">Works ${id1}</label> <button
+                type="button"
+                class="btn btn-primary rem"
+                id="empty"
+                style="float: right"
+                
+              >
+                Remove
+              </button>  <input type="text" class="form-control" id="title${id1}" placeholder="Title"><input type="text" class="form-control" id="descr${id1}" placeholder="description"> <input type="text" class="form-control" id="gitlink${id1}" placeholder="Github link"> <input type="text" class="form-control" id="livelink${id1}" placeholder="Live Link"></div>`
+        );
+        id1++;
+        deletee();
+      }
+      var id2 = 1;
+      function skillsForm() {
+        var form = document.getElementById("skills");
+        form.insertAdjacentHTML(
+          "beforeend",
+
+          `<button
+                type="button"
+                class="btn btn-primary remSkill"
+                id="empty"
+                style="float: right"
+               
+              >
+                Remove
+              </button><input type="text" class="form-control" id="skill${id2}" placeholder="Enter Skill">`
+        );
+        id2++;
+        removeSkills();
+        // deletee();
+      }
+
+      function worksReload() {
+        fetch(url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            document.getElementById("name").value = data[0].name;
+            document.getElementById("role").value = data[0].role;
+            document.getElementById("email").value = data[0].email;
+            document.getElementById("phone").value = data[0].phone;
+            document.getElementById("linkedin").value = data[0].linkedin;
+            document.getElementById("github").value = data[0].github;
+            console.log(data[0].works);
+            var form = document.getElementById("wrksform");
+            form.innerHTML = ` <button type="button"class="btn btn-primary"
+                style="float: right" onclick="worksForm()">Add </button>`;
+            // id1 = 1;
+            data[0].works.forEach((ele, i) => {
+              form.insertAdjacentHTML(
+                "beforeend",
+                ` <div ><label for="role" >Works ${id1}</label> <button
+                type="button"
+                class="btn btn-primary rem"
+                id="${ele.title}"
+                style="float: right"
+                
+              >
+                Remove
+              </button>  <input type="text" class="form-control" value="${ele.title}" id="title${id1}" placeholder="Title"><input type="text" class="form-control" value="${ele.description}" id="descr${id1}" placeholder="description"> <input type="text" value="${ele.git}" class="form-control" id="gitlink${id1}" placeholder="Github link"> <input type="text" class="form-control" id="livelink${id1}" value="${ele.live}" placeholder="Live Link"></div>`
+              );
+              id1 = i + 2;
+            });
+          })
+          .then((res) => {
+            deletee();
+          });
+      }
+      worksReload();
+
+      function skillsReload() {
+        fetch(url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data[0].skills);
+            var form = document.getElementById("skills");
+            form.innerHTML = `  <label for="skill1">Skills</label>  <button
+                type="button"
+                class="btn btn-primary"
+                style="float: right"
+                onclick="skillsForm()"
+              >
+                Add Skill
+              </button>`;
+            data[0].skills.forEach((ele, i) => {
+              form.insertAdjacentHTML(
+                "beforeend",
+                `<button
+                type="button"
+                class="btn btn-primary remSkill"
+                id="${ele}"
+                style="float: right"
+               
+              >Remove</button> <input type="text" class="form-control" id="skill${id2}" value="${ele}" placeholder="Enter Skill">`
+              );
+              id2 = i + 2;
+            });
+          })
+          .then((res) => {
+            removeSkills();
+           
+          });
+      }
+      skillsReload();
+      function add() {
+        var name = document.getElementById("name").value;
+        var role = document.getElementById("role").value;
+        var bio = document.getElementById("bio").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var linkedin = document.getElementById("linkedin").value;
+        var github = document.getElementById("github").value;
+        var works = [];
+        var skills = [];
+
+        for (var i = 1; i < id1; i++) {
+          console.log(i);
+          var title = document.getElementById("title" + i).value;
+
+          var description = document.getElementById("descr" + i).value;
+          var git = document.getElementById("gitlink" + i).value;
+          var live = document.getElementById("livelink" + i).value;
+          works.push({
+            title: title,
+            description: description,
+            git: git,
+            live: live,
+          });
+        }
+
+        for (var i = 1; i < id2; i++) {
+          console.log(i);
+
+          if (document.getElementById("skill" + i).value) {
+            var skill = document.getElementById("skill" + i).value;
+            skills.push(skill);
+          }
+        }
+        fetch(url + "/form", {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            role,
+            bio,
+            works,
+            skills,
+            email,
+            phone,
+            linkedin,
+            github,
+          }),
+        }).then((res) => {
+          console.log(res);
+          window.open("index.html");
+        })
+
+        
+
+        console.log(name, role, bio, skills, works);
+      }
+
+      function deletee() {
+        var card = document.querySelectorAll(".rem");
+        // console.log(card)
+        card.forEach((ele) => {
+          ele.addEventListener("click", rem);
+          function rem() {
+            var id = ele.getAttribute("id");
+            if (id == "empty") {
+              console.log(id);
+              worksReload();
+            } else {
+              console.log(id);
+              fetch(url + "/delete/" + id, {
+                method: "PUT",
+                headers: {
+                  "Content-type": "application/json",
+                },
+              }).then((res) => {
+                console.log(res);
+                worksReload();
+                window.location.reload();
+              });
+            }
+          }
+        });
+      }
+      function removeSkills() {
+        var card = document.querySelectorAll(".remSkill");
+        // console.log(card);
+        card.forEach((ele) => {
+          ele.addEventListener("click", remSkill);
+          function remSkill() {
+            var skill = ele.getAttribute("id");
+            if (skill == "empty") {
+              // console.log(skill);
+              skillsReload();
+            } else {
+              // console.log(skill);
+              fetch(url + "/deleteSkill/" + skill, {
+                method: "PUT",
+                headers: {
+                  "Content-type": "application/json",
+                },
+              }).then((res) => {
+                // console.log(res);
+                skillsReload();
+                window.location.reload();
+              });
+            }
+          }
+        });
+      }
+    </script>
+
+    <script src="https://use.fontawesome.com/b658993120.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>

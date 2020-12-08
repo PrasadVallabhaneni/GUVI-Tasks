@@ -1,0 +1,150 @@
+html {
+    scroll-behavior: smooth;
+}
+.body {
+    background-color: #f2f2f2;
+    width: 100%;
+    /* height: 200%; */
+    position: relative;
+}
+#home {
+    position: fixed;
+
+    font-size: 20px;
+    margin: 15px;
+    text-decoration: none;
+    color: black;
+    font-family: "Mukta", sans-serif;
+    /* top: 90%; */
+    /* left: 90%; */
+    z-index: 3;
+}
+#header {
+    text-align: center;
+    position: fixed;
+    margin-top: 20px;
+    font-size: 20px;
+}
+#resume {
+    position: fixed;
+    float: right;
+    font-size: 20px;
+    margin: 15px;
+    left: 93%;
+    text-decoration: none;
+    color: black;
+    font-family: "Mukta", sans-serif;
+    /* top: 90%; */
+    /* left: 90%; */
+    z-index: 3;
+}
+#name {
+    display: inline;
+    font-family: "Mukta", sans-serif;
+    letter-spacing: 5px;
+    color: blue;
+    z-index: 3;
+    /* font-weight: bolder; */
+}
+#hello {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    font-size: 200px;
+    font-family: "Oswald", sans-serif;
+    transform: scale(1.8, 3);
+    color: #ffffff;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+#about {
+    display: flex;
+    text-align: center;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 60px;
+    font-family: "Balsamiq Sans", cursive;
+    word-spacing: 5px;
+    letter-spacing: 3px;
+    color: black;
+}
+.highlight {
+    color: blue;
+}
+#wrk {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    /* background-color: black; */
+
+}
+.worksTitle {
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    position: relative;
+    /* color: black; */
+    font-size: 60px;
+    margin-top: 20px;
+    margin-left: 60px;
+    font-family: "Mukta", sans-serif;
+    /* transform: scale(1.5, 1); */
+
+}
+.workCard {
+    text-align: center;
+    color: white;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin: 10px;
+    background-color: black;
+    box-shadow: 3px 3px 5px rgba(14, 13, 13, 0.445);
+    height: 200px;
+    /* padding: 10px;  */
+}
+.card {
+    text-align: center;
+    color: white;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin: 10px;
+    background-color: black;
+    box-shadow: 3px 3px 5px rgba(14, 13, 13, 0.445);
+}
+.background {
+    border: 2px solid white;
+    padding: 5%;
+    background-color: rgb(190, 189, 189);
+    text-align: center;
+
+}
+#edit {
+    position: fixed;
+    font-size: 20px;
+    top: 90%;
+    left: 90%;
+    z-index: 3;
+    
+
+}
+#edit:hover{
+    cursor: pointer;
+}
+@media screen and(max-width: 1000px) {
+    #about {
+        font-size: 30px;
+    }
+    #resume {
+        left: 83%;
+    }
+}
+@media screen and(max-width: 500px) {
+    #resume {
+        left: 75%;
+    }
+}
