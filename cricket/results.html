@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .row {
+        /* border: 2px solid black; */
+        text-align: center;
+        overflow: scroll;
+      }
+      .col-4 {
+        padding: 10px;
+        line-height: 40px;
+      }
+      #generateResults {
+        margin: 0px auto;
+        position: relative;
+        top: 20%;
+      }
+      #win {
+        letter-spacing: 10px;
+      }
+      td {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" id="generateResults">
+      <div class="row">
+        <div class="col-10 offset-1">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="winResult">
+                WINNER <br /><span id="teamResult">Team 1</span> <br />Score:
+                <span id="winscoreResult">1</span> <br />Man of the match:<span
+                  id="manResult"
+                  style="letter-spacing: 5px"
+                  >Player2</span
+                >(Team <span id="manTeamResult">1</span>)
+              </h1>
+              <a href="index.html"><button type="button" class="btn btn-success" id="">
+                Play Again
+              </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var team = localStorage.getItem("team");
+      document.getElementById("teamResult").innerHTML = team;
+      var score = localStorage.getItem("score");
+      document.getElementById("winscoreResult").innerHTML = score;
+      var man = localStorage.getItem("man");
+      document.getElementById("manResult").innerHTML = man;
+      var manTeam = localStorage.getItem("manTeam");
+      document.getElementById("manTeamResult").innerHTML = manTeam;
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
