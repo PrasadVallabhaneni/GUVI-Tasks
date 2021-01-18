@@ -30,3 +30,4 @@
 15: portfolio-template: https://portfolio-template-form.netlify.app/index.html
 
 16. URL Shortener: https://url-shrtnr.netlify.app/index.html
+17. Cricket Game: https://sample-cricketgame.netlify.app/
